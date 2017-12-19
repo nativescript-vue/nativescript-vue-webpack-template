@@ -1,0 +1,16 @@
+{
+  "name": "nativescript-vue-webpack-template",
+  "scripts": {
+    "webpack": "webpack --config build/webpack.config.js",
+    "build": "npm run webpack",
+    "dev": "npm run webpack -- --watch"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "nativescript-vue-loader": "^0.1.2",
+    "webpack": "^3.10.0",
+    "webpack-merge": "^4.1.1"
+  }
+}
