@@ -1,9 +1,12 @@
 {
   "name": "nativescript-vue-webpack-template",
+  "private": true,
   "scripts": {
     "webpack": "webpack --config build/webpack.config.js",
     "build": "npm run webpack",
-    "dev": "npm run webpack -- --watch"
+    "dev": "npm run webpack -- --watch",
+    "tns": "tns --path dist/native",
+    "postinstall": "tns create --path dist native --template nativescript-vue-base-template --appid org.nativescript.vue.webpack"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
