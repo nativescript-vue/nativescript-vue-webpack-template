@@ -1,10 +1,10 @@
-const path = require('path')
+const utils = require('./utils')
 const merge = require('webpack-merge')
 
 const defaults = {
   resolve: {
     alias: {
-      '~': path.resolve(__dirname, '..', 'src')
+      '~': utils.srcPath()
     }
   }
 }

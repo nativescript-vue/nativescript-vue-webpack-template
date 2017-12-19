@@ -1,9 +1,23 @@
-const path = require('path')
+const utils = require('./utils')
+const FileManagerPlugin = require('filemanager-webpack-plugin')
 
 module.exports = {
-  entry: path.resolve(__dirname, '..', 'src', 'entry.native.js'),
+  entry: utils.srcPath('entry.native.js'),
   output: {
     filename: 'app.bundle.js',
-    path: path.resolve(__dirname, '..', 'dist', 'native', 'app')
-  }
+    path: utils.distPath('native/app'),
+  },
+
+  plugins: [
+    new FileManagerPlugin({
+      onStart: {
+        copy: [
+          {
+            source: utils.srcPathGlob('resources', '**/*'),
+            destination: utils.distPath('native/app/App_Resources')
+          }
+        ]
+      }
+    })
+  ]
 }

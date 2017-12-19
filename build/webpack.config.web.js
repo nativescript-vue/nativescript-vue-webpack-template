@@ -1,9 +1,9 @@
-const path = require('path')
+const utils = require('./utils')
 
 module.exports = {
-  entry: path.resolve(__dirname, '..', 'src', 'entry.web.js'),
+  entry: utils.srcPath('entry.web.js'),
   output: {
     filename: 'app.bundle.js',
-    path: path.resolve(__dirname, '..', 'dist', 'web')
+    path: utils.distPath('web')
   }
 }

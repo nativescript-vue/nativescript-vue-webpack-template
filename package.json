@@ -12,6 +12,7 @@
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
+    "filemanager-webpack-plugin": "^1.0.17",
     "nativescript-vue-loader": "^0.1.2",
     "webpack": "^3.10.0",
     "webpack-merge": "^4.1.1"
