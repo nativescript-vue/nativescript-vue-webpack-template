@@ -5,8 +5,7 @@
     "webpack": "webpack --config build/webpack.config.js",
     "build": "npm run webpack",
     "dev": "npm run webpack -- --watch",
-    "tns": "tns --path dist/native",
-    "postinstall": "tns create --path dist native --template nativescript-vue-base-template --appid org.nativescript.vue.webpack"
+    "tns": "tns --path dist/native"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -15,6 +14,7 @@
     "filemanager-webpack-plugin": "^1.0.17",
     "nativescript-vue-loader": "^0.1.2",
     "webpack": "^3.10.0",
-    "webpack-merge": "^4.1.1"
+    "webpack-merge": "^4.1.1",
+    "webpack-pre-emit-plugin": "^0.1.0"
   }
 }

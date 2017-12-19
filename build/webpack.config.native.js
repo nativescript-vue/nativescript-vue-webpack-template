@@ -1,5 +1,6 @@
 const utils = require('./utils')
 const FileManagerPlugin = require('filemanager-webpack-plugin')
+const WebpackPreEmitPlugin = require('webpack-pre-emit-plugin')
 
 module.exports = {
   entry: utils.srcPath('entry.native.js'),
@@ -9,8 +10,11 @@ module.exports = {
   },
 
   plugins: [
+    new WebpackPreEmitPlugin((params, cb) => {
+      utils.runCommand('node build/prepare.js').then(cb)
+    }),
     new FileManagerPlugin({
-      onStart: {
+      onEnd: {
         copy: [
           {
             source: utils.srcPathGlob('resources', '**/*'),
