@@ -5,16 +5,27 @@
     "webpack": "webpack --config build/webpack.config.js",
     "build": "npm run webpack",
     "dev": "npm run webpack -- --watch",
-    "tns": "tns --path dist/native"
+    "tns": "tns --path dist/native",
+    "preinstall": "npm uninstall --save-dev nativescript-dev-webpack",
+    "postinstall": "npm install --save-dev --ignore-scripts nativescript-dev-webpack"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
     "filemanager-webpack-plugin": "^1.0.17",
-    "nativescript-vue-loader": "^0.1.2",
+    "html-webpack-plugin": "^2.30.1",
+    "nativescript-dev-webpack": "^0.8.0",
+    "nativescript-vue-loader": "^0.1.4",
+    "nativescript-vue-template-compiler": "^0.5.1",
+    "vue-template-compiler": "^2.5.12",
     "webpack": "^3.10.0",
     "webpack-merge": "^4.1.1",
     "webpack-pre-emit-plugin": "^0.1.0"
+  },
+  "dependencies": {
+    "nativescript-vue": "^0.5.1",
+    "tns-core-modules": "^3.3.0",
+    "vue": "^2.5.12"
   }
 }

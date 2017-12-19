@@ -2,10 +2,21 @@ const utils = require('./utils')
 const merge = require('webpack-merge')
 
 const defaults = {
+  context: utils.srcPath(),
   resolve: {
-    alias: {
-      '~': utils.srcPath()
-    }
+    extensions: [
+      '.js',
+      '.css',
+      '.vue',
+    ]
+  },
+  module: {
+    rules: [
+      {
+        test: /\.vue$/,
+        loader: 'nativescript-vue-loader'
+      }
+    ]
   }
 }
 
