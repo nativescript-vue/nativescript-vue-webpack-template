@@ -4,7 +4,15 @@
   "scripts": {
     "webpack": "webpack --config build/webpack.config.js",
     "build": "npm run webpack",
+    "build:web": "npm run webpack -- --env.platform=web",
+    "build:native": "npm run webpack -- --env.platform=ios --env.platform=android",
+    "build:ios": "npm run webpack -- --env.platform=ios",
+    "build:android": "npm run webpack -- --env.platform=android",
     "dev": "npm run webpack -- --watch",
+    "dev:web": "npm run webpack -- --env.platform=web --watch",
+    "dev:native": "npm run webpack -- --env.platform=ios --env.platform=android --watch",
+    "dev:ios": "npm run webpack -- --env.platform=ios --watch",
+    "dev:android": "npm run webpack -- --env.platform=android --watch",
     "tns": "tns --path dist/native",
     "preinstall": "npm uninstall --save-dev nativescript-dev-webpack",
     "postinstall": "npm install --save-dev --ignore-scripts nativescript-dev-webpack"
@@ -17,15 +25,15 @@
     "html-webpack-plugin": "^2.30.1",
     "nativescript-dev-webpack": "^0.8.0",
     "nativescript-vue-loader": "^0.1.4",
-    "nativescript-vue-template-compiler": "^0.5.1",
-    "vue-template-compiler": "^2.5.12",
+    "nativescript-vue-template-compiler": "^0.7.8",
+    "vue-template-compiler": "^2.5.13",
     "webpack": "^3.10.0",
     "webpack-merge": "^4.1.1",
     "webpack-pre-emit-plugin": "^0.1.0"
   },
   "dependencies": {
-    "nativescript-vue": "^0.5.1",
-    "tns-core-modules": "^3.3.0",
-    "vue": "^2.5.12"
+    "nativescript-vue": "^0.7.8",
+    "tns-core-modules": "^3.4.0",
+    "vue": "^2.5.13"
   }
 }

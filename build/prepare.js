@@ -15,7 +15,7 @@ try {
 } finally {
   if (!files.length) {
     console.log('Creating nativescript project...')
-    utils.runCommand(`tns create --path dist native --template ${APP_TEMPLATE} --appid ${APP_ID}`)
+    utils.runCommand(`tns create --path dist native --template ${APP_TEMPLATE} --appid ${APP_ID}`, true /* silent */)
       .then(() => {
         console.log('Successfully prepared project')
       })

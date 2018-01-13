@@ -29,12 +29,12 @@ module.exports.distPathGlob = (path = '', glob = '') => {
   return pathModule.resolve(__dirname, '../dist', path) + pathModule.sep + glob
 }
 
-module.exports.runCommand = (command) => {
+module.exports.runCommand = (command, silent = false) => {
   return new Promise((resolve, reject) => {
     const split = command.split(' ')
     const child = spawn(split[0], split.slice(1), {shell: true})
 
-    child.stdout.on('data', data => process.stdout.write(data))
+    !silent && child.stdout.on('data', data => process.stdout.write(data))
     child.on('error', data => reject(`The command '${command}' has failed.`))
     child.on('exit', () => resolve())
   })

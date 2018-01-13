@@ -47,4 +47,23 @@ const webConfig = merge(defaults, require('./webpack.config.web'))
 const androidConfig = merge(defaults, require('./webpack.config.native')('android'))
 const iOSConfig = merge(defaults, require('./webpack.config.native')('ios'))
 
-module.exports = [webConfig, androidConfig, iOSConfig]
+const hasPlatform = (v, platform) => {
+  if(Array.isArray(v)) {
+    return v.includes(platform)
+  }
+
+  return v.indexOf(platform) !== -1
+}
+
+module.exports = (env) => {
+  if (!env) {
+    return [webConfig, androidConfig, iOSConfig]
+  }
+
+  const config = [];
+  hasPlatform(env.platform, 'web') && config.push(webConfig)
+  hasPlatform(env.platform, 'android') && config.push(androidConfig)
+  hasPlatform(env.platform, 'ios') && config.push(iOSConfig)
+
+  return config;
+}

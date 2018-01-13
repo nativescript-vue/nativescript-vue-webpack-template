@@ -5,8 +5,10 @@ const App = require('./views/App').default
 new Vue({
   template: `
     <Page>
-        <Label text="Hello World"/>
-        <App/>
+        <StackLayout>
+            <Label text="Hello World"/>
+            <App/>
+        </StackLayout>
     </Page>
   `,
 
