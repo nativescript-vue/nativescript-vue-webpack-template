@@ -1,5 +1,6 @@
 const utils = require('./utils')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const DefinePlugin = require('webpack/lib/DefinePlugin')
 
 module.exports = {
   target: 'web',
@@ -23,6 +24,9 @@ module.exports = {
     ]
   },
   plugins: [
+    new DefinePlugin({
+      'TNS_PLATFORM': JSON.stringify('web')
+    }),
     new HtmlWebpackPlugin({
       template: utils.srcPath('index.html')
     })

@@ -51,7 +51,7 @@ module.exports = (platform) => ({
   },
   plugins: [
     new DefinePlugin({
-      'TNS_PLATFORM': platform
+      'TNS_PLATFORM': JSON.stringify(platform)
     }),
     new WebpackPreEmitPlugin((params, cb) => {
       utils.runCommand('node build/prepare.js').then(cb)

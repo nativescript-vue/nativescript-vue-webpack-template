@@ -1,20 +1,17 @@
 <template web>
     <div class="App">
         <h1>Hello Web App</h1>
+        <h2>
+            {{ msg }}
+        </h2>
         <ImageGallery/>
     </div>
 </template>
 
-<template android>
+<template native>
     <StackLayout>
-        <Label text="Hello android App" style="font-size: 48;"/>
-        <ImageGallery/>
-    </StackLayout>
-</template>
-
-<template ios>
-    <StackLayout>
-        <Label text="Hello ios App" style="font-size: 48;"/>
+        <Label text="Hello mobile App" style="font-size: 48;"/>
+        <Label :text="msg" style="font-size: 48;"/>
         <ImageGallery/>
     </StackLayout>
 </template>
@@ -23,6 +20,11 @@
   import ImageGallery from '../components/ImageGallery'
 
   export default {
+    data() {
+      return {
+        msg: TNS_PLATFORM
+      }
+    },
     components: {
       ImageGallery
     }
