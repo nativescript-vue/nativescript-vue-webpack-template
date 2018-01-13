@@ -3,6 +3,7 @@ const NativeScriptTarget = require('nativescript-dev-webpack/nativescript-target
 const FileManagerPlugin = require('filemanager-webpack-plugin')
 const WebpackPreEmitPlugin = require('webpack-pre-emit-plugin')
 const LoaderTargetPlugin = require('webpack/lib/LoaderTargetPlugin')
+const DefinePlugin = require('webpack/lib/DefinePlugin')
 
 // This overrides the LoaderTargetPlugin('web') called from NativeScriptTarget
 const NativeScriptVueTarget = function (compiler) {
@@ -15,11 +16,11 @@ const NativeScriptVueTarget = function (compiler) {
   })
 }
 
-module.exports = {
+module.exports = (platform) => ({
   target: NativeScriptVueTarget,
-  entry: utils.srcPath('entry.native.js'),
+  entry: utils.platformSrcPath('entry.{platform}.js', platform, 'native'),
   output: {
-    filename: 'app.bundle.js',
+    filename: `app.bundle.${platform}.js`,
     path: utils.distPath('native/app'),
   },
   resolve: {
@@ -29,6 +30,11 @@ module.exports = {
     modules: [
       'node_modules/tns-core-modules',
       'node_modules',
+    ],
+    extensions: [
+      `.${platform}.js`,
+      `.${platform}.css`,
+      `.${platform}.vue`,
     ]
   },
   node: {
@@ -44,6 +50,9 @@ module.exports = {
     callback()
   },
   plugins: [
+    new DefinePlugin({
+      'TNS_PLATFORM': platform
+    }),
     new WebpackPreEmitPlugin((params, cb) => {
       utils.runCommand('node build/prepare.js').then(cb)
     }),
@@ -58,4 +67,4 @@ module.exports = {
       }
     })
   ]
-}
+})

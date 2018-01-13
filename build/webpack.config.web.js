@@ -14,6 +14,14 @@ module.exports = {
       'vue': 'vue/dist/vue.js'
     },
   },
+  module: {
+    loaders: [
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+      },
+    ]
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: utils.srcPath('index.html')

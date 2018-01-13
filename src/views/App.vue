@@ -5,9 +5,16 @@
     </div>
 </template>
 
-<template native>
+<template android>
     <StackLayout>
-        <Label text="Hello Mobile App" style="font-size: 48;"/>
+        <Label text="Hello android App" style="font-size: 48;"/>
+        <ImageGallery/>
+    </StackLayout>
+</template>
+
+<template ios>
+    <StackLayout>
+        <Label text="Hello ios App" style="font-size: 48;"/>
         <ImageGallery/>
     </StackLayout>
 </template>
