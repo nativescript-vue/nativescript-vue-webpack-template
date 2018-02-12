@@ -16,6 +16,5 @@ npm run dev
 npm run tns -- run android # wip this won't be required later
 
 # terminal 3
-# for the web version, there is no dev-server configured yet so:
-cd dist/web
-serve
+# for the web version, a dev-server is configured with HMR on port 8080:
+`npm run dev:server`

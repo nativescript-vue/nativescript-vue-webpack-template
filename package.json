@@ -9,6 +9,7 @@
     "build:ios": "npm run webpack -- --env.platform=ios",
     "build:android": "npm run webpack -- --env.platform=android",
     "dev": "npm run webpack -- --watch",
+    "dev:server": "webpack-dev-server --config build/webpack.config.js --env.platform=web --open --watch",
     "dev:web": "npm run webpack -- --env.platform=web --watch",
     "dev:native": "npm run webpack -- --env.platform=ios --env.platform=android --watch",
     "dev:ios": "npm run webpack -- --env.platform=ios --watch",
@@ -30,6 +31,7 @@
     "nativescript-vue-template-compiler": "^0.7.9",
     "vue-template-compiler": "^2.5.13",
     "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.11.1",
     "webpack-merge": "^4.1.1",
     "webpack-pre-emit-plugin": "^0.1.0"
   },
