@@ -36,7 +36,7 @@
     "webpack-pre-emit-plugin": "^0.1.0"
   },
   "dependencies": {
-    "nativescript-vue": "^0.7.9",
+    "nativescript-vue": "^1.0.0",
     "tns-core-modules": "^3.4.0",
     "vue": "^2.5.13"
   }
